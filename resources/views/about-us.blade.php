@@ -158,11 +158,7 @@
                       <i class="{{ $i <= $item->rating ? 'fa-solid fa-star' : 'fa-regular fa-star' }}"></i>
                     @endfor
                   </div>
-                  @if($item->image)
-                    <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" />
-                  @else
-                    <img src="{{ asset('images/Layer_23_copy_5.png') }}" alt="{{ $item->name }}" />
-                  @endif
+                  <img src="{{ $item->image_url }}" alt="{{ $item->name }}" />
                 </div>
               </div>
             </div>

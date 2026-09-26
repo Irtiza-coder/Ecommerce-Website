@@ -39,11 +39,7 @@
                         <td style="padding:14px 20px;">
                             <div style="display:flex;align-items:center;gap:12px;">
                                 <div style="width:44px;height:44px;border-radius:50%;overflow:hidden;flex-shrink:0;border:1px solid var(--border-color);background:#1a1c23;">
-                                    @if($item->image)
-                                        <img src="{{ asset('storage/' . $item->image) }}" alt="{{ $item->name }}" style="width:100%;height:100%;object-fit:cover;">
-                                    @else
-                                        <img src="{{ asset('images/Layer_23_copy_5.png') }}" alt="{{ $item->name }}" style="width:100%;height:100%;object-fit:cover;">
-                                    @endif
+                                    <img src="{{ $item->image_url }}" alt="{{ $item->name }}" style="width:100%;height:100%;object-fit:cover;">
                                 </div>
                                 <div>
                                     <div style="font-weight:600;font-size:14px;color:#1a1a1a;">{{ $item->name }}</div>

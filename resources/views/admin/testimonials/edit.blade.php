@@ -88,7 +88,7 @@
                 <div class="admin_card_body text-center">
                     <div style="margin-bottom:14px;border-radius:10px;overflow:hidden;border:1px solid var(--border-color);background:#1a1c23;padding:15px;" id="currentImgWrap">
                         <img id="imgPreview" 
-                             src="{{ $testimonial->image ? asset('storage/' . $testimonial->image) : asset('images/Layer_23_copy_5.png') }}" 
+                             src="{{ $testimonial->image_url }}" 
                              style="width:110px;height:110px;border-radius:50%;object-fit:cover;margin:0 auto;display:block;border:2px solid var(--accent);">
                     </div>
                     <label class="form-label text-start d-block" style="font-size:12px;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:.5px;">Change Photo</label>

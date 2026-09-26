@@ -13,6 +13,9 @@ php /var/www/html/artisan migrate --force || true
 echo "==> Seeding database..."
 php /var/www/html/artisan db:seed --force || true
 
+echo "==> Linking storage..."
+php /var/www/html/artisan storage:link || true
+
 echo "==> Fixing storage permissions..."
 chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache || true
 chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache || true
