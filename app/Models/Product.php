@@ -27,50 +27,49 @@ class Product extends Model
         }
 
         $cleanPath = ltrim($this->image, '/');
+        $resolvedUrl = null;
 
         // 1. Check in public/images/
         if (file_exists(public_path('images/' . $cleanPath))) {
-            return asset('images/' . $cleanPath);
+            $resolvedUrl = asset('images/' . $cleanPath);
         }
-
         // 2. Check in public/storage/
-        if (file_exists(public_path('storage/' . $cleanPath))) {
-            return asset('storage/' . $cleanPath);
+        elseif (file_exists(public_path('storage/' . $cleanPath))) {
+            $resolvedUrl = asset('storage/' . $cleanPath);
         }
-
         // 3. Check directly in public/
-        if (file_exists(public_path($cleanPath))) {
-            return asset($cleanPath);
+        elseif (file_exists(public_path($cleanPath))) {
+            $resolvedUrl = asset($cleanPath);
         }
-
         // 4. Try replacing .jpg/.jpeg with .png
-        $pngPath = preg_replace('/\.(jpg|jpeg)$/i', '.png', $cleanPath);
-        if (file_exists(public_path('images/' . $pngPath))) {
-            return asset('images/' . $pngPath);
-        }
-        if (file_exists(public_path('storage/' . $pngPath))) {
-            return asset('storage/' . $pngPath);
-        }
-
-        // 5. Try replacing .png with .jpg
-        $jpgPath = preg_replace('/\.png$/i', '.jpg', $cleanPath);
-        if (file_exists(public_path('images/' . $jpgPath))) {
-            return asset('images/' . $jpgPath);
-        }
-        if (file_exists(public_path('storage/' . $jpgPath))) {
-            return asset('storage/' . $jpgPath);
-        }
-
-        // 6. Check by basename in public/images/products/
-        $basename = basename($cleanPath);
-        $basenamePng = preg_replace('/\.(jpg|jpeg)$/i', '.png', $basename);
-        if (file_exists(public_path('images/products/' . $basenamePng))) {
-            return asset('images/products/' . $basenamePng);
-        }
-        if (file_exists(public_path('images/products/' . $basename))) {
-            return asset('images/products/' . $basename);
+        else {
+            $pngPath = preg_replace('/\.(jpg|jpeg)$/i', '.png', $cleanPath);
+            if (file_exists(public_path('images/' . $pngPath))) {
+                $resolvedUrl = asset('images/' . $pngPath);
+            } elseif (file_exists(public_path('storage/' . $pngPath))) {
+                $resolvedUrl = asset('storage/' . $pngPath);
+            } else {
+                $jpgPath = preg_replace('/\.png$/i', '.jpg', $cleanPath);
+                if (file_exists(public_path('images/' . $jpgPath))) {
+                    $resolvedUrl = asset('images/' . $jpgPath);
+                } elseif (file_exists(public_path('storage/' . $jpgPath))) {
+                    $resolvedUrl = asset('storage/' . $jpgPath);
+                } else {
+                    $basename = basename($cleanPath);
+                    $basenamePng = preg_replace('/\.(jpg|jpeg)$/i', '.png', $basename);
+                    if (file_exists(public_path('images/products/' . $basenamePng))) {
+                        $resolvedUrl = asset('images/products/' . $basenamePng);
+                    } elseif (file_exists(public_path('images/products/' . $basename))) {
+                        $resolvedUrl = asset('images/products/' . $basename);
+                    }
+                }
+            }
         }
 
-        return asset('images/product1.png');
+        if (!$resolvedUrl) {
+            $resolvedUrl = asset('images/product1.png');
+        }
+
+        return $resolvedUrl . '?v=2';
     }
 }
