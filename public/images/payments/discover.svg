@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 32" width="48" height="32">
+  <rect width="48" height="32" rx="4" fill="#ffffff"/>
+  <rect x="0.5" y="0.5" width="47" height="31" rx="3.5" fill="none" stroke="#e2e8f0"/>
+  <path d="M4 16h40v12H4z" fill="#ff6000" opacity="0.1"/>
+  <path d="M4 17.5c4-4 8-1.5 12-1.5s8-3 12-3 8 2.5 12 1.5l4 1.5v10H4v-8.5z" fill="#ff6000"/>
+  <circle cx="27" cy="14" r="5" fill="#f47b20"/>
+  <text x="5" y="17" font-family="Arial, sans-serif" font-weight="900" font-size="7.5" fill="#1f2937" letter-spacing="0.5">DISC</text>
+  <text x="32.5" y="17" font-family="Arial, sans-serif" font-weight="900" font-size="7.5" fill="#1f2937" letter-spacing="0.5">VER</text>
+</svg>
