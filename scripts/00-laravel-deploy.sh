@@ -1,11 +1,10 @@
 #!/usr/bin/env bash
-echo "==> Running Composer Install..."
-composer install --no-dev --working-dir=/var/www/html --optimize-autoloader --no-interaction
+set -e
 
 echo "==> Caching config, routes, and views..."
-php artisan config:cache
-php artisan route:cache
-php artisan view:cache
+php artisan config:cache || true
+php artisan route:cache || true
+php artisan view:cache || true
 
 echo "==> Running database migrations..."
 php artisan migrate --force
