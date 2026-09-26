@@ -1,15 +1,20 @@
-#!/usr/bin/env bash
+#!/bin/sh
 set -e
 
-echo "==> Caching config, routes, and views..."
-php artisan config:cache || true
-php artisan route:cache || true
-php artisan view:cache || true
+echo "==> Running Laravel deployment tasks..."
+
+php /var/www/html/artisan config:cache || true
+php /var/www/html/artisan route:cache || true
+php /var/www/html/artisan view:cache || true
 
 echo "==> Running database migrations..."
-php artisan migrate --force
+php /var/www/html/artisan migrate --force || true
 
 echo "==> Seeding database..."
-php artisan db:seed --force
+php /var/www/html/artisan db:seed --force || true
 
-echo "==> Deployment tasks completed successfully!"
+echo "==> Fixing storage permissions..."
+chown -R www-data:www-data /var/www/html/storage /var/www/html/bootstrap/cache || true
+chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache || true
+
+echo "==> Deployment tasks complete!"

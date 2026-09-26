@@ -16,7 +16,7 @@ return Application::configure(basePath: dirname(__DIR__))
             'checklogin'       => \App\Http\Middleware\CheckLoggedIn::class,
             'checkadmin'      => \App\Http\Middleware\CheckAdmin::class,
             'redirectifadmin' => \App\Http\Middleware\RedirectIfAdmin::class,
-            'redirectuser'    => \App\Http\Middleware\redirectuser::class,
+            'redirectuser'    => \App\Http\Middleware\Redirectuser::class,
         ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {

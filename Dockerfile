@@ -1,32 +1,16 @@
-FROM richarvey/nginx-php-fpm:3.1.6
+FROM serversideup/php:8.4-fpm-nginx
 
-# Set working directory
+USER root
+
+# Copy application files with proper www-data ownership
+COPY --chown=www-data:www-data . /var/www/html
+
+# Copy startup deployment script into entrypoint directory
+COPY --chmod=755 scripts/00-laravel-deploy.sh /etc/entrypoint.d/00-laravel-deploy.sh
+
+# Install Composer dependencies at build time using PHP 8.4
+USER www-data
 WORKDIR /var/www/html
+RUN composer install --no-dev --optimize-autoloader --no-interaction
 
-# Copy all application files
-COPY . .
-
-# Image config
-ENV SKIP_COMPOSER 1
-ENV WEBROOT /var/www/html/public
-ENV PHP_ERRORS_STDERR 1
-ENV RUN_SCRIPTS 1
-ENV REAL_IP_HEADER 1
-
-# Laravel config
-ENV APP_ENV production
-ENV APP_DEBUG false
-ENV LOG_CHANNEL stderr
-ENV COMPOSER_ALLOW_SUPERUSER 1
-
-# Ensure scripts are executable
-RUN chmod +x /var/www/html/scripts/*.sh
-
-# Install all Composer packages into the Docker image at build time
-RUN composer install --no-dev --optimize-autoloader --no-interaction --ignore-platform-reqs
-
-# Fix storage and cache permissions
-RUN chown -R nginx:nginx /var/www/html/storage /var/www/html/bootstrap/cache \
-    && chmod -R 775 /var/www/html/storage /var/www/html/bootstrap/cache
-
-CMD ["/start.sh"]
+EXPOSE 8080
