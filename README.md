@@ -80,3 +80,44 @@ Visit the application at:
 | Role | Username | Password | Login URL |
 | :--- | :--- | :--- | :--- |
 | **Administrator** | `admin` | `123456` | `http://127.0.0.1:8000/admin/login` |
+
+---
+
+## 🌐 Deploy to Render (Live Website)
+
+This project is pre-configured for instant deployment on [Render](https://render.com) using Docker and Render's managed PostgreSQL database.
+
+### Quick Deployment via Blueprint (Recommended):
+1. Sign in to your [Render Dashboard](https://dashboard.render.com).
+2. Click **New +** and choose **Blueprint**.
+3. Connect your GitHub repository: `https://github.com/Irtiza-coder/Ecommerce-Website`.
+4. Render will automatically read `render.yaml` and configure:
+   - A **PostgreSQL database** (`ecommerce-db`)
+   - A **Docker Web Service** (`crest-and-clove-ecommerce`)
+5. In the **Environment Variables** prompt, supply:
+   - **`APP_KEY`**: `base64:tbybCyYUlfBE/sC3/0OtGoraZWzWNsQAVXvMQEqLtkc=` (or generate your own using `php artisan key:generate --show`)
+6. Click **Apply**.
+   - Render builds the Docker container.
+   - It automatically runs Composer, caches routes/views, runs database migrations, and seeds the default admin, categories, and products!
+   - Your live website URL will be ready at: `https://crest-and-clove-ecommerce.onrender.com`
+
+---
+
+### Alternative Manual Deployment on Render:
+1. **Create PostgreSQL Database on Render**:
+   - Go to **New +** -> **PostgreSQL**.
+   - Name: `ecommerce-db`, Database: `ecommerce`, User: `ecommerce_user`.
+   - Copy the **Internal Database URL**.
+2. **Create Web Service**:
+   - Go to **New +** -> **Web Service**.
+   - Connect repository `https://github.com/Irtiza-coder/Ecommerce-Website`.
+   - Runtime: **Docker**.
+   - Under **Environment Variables**, add:
+     - `APP_NAME`: `Crest & Clove`
+     - `APP_ENV`: `production`
+     - `APP_DEBUG`: `false`
+     - `APP_KEY`: `base64:tbybCyYUlfBE/sC3/0OtGoraZWzWNsQAVXvMQEqLtkc=`
+     - `DB_CONNECTION`: `pgsql`
+     - `DATABASE_URL`: *(paste the Internal Database URL from step 1)*
+3. Click **Deploy Web Service**.
+

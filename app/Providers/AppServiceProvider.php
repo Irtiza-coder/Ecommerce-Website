@@ -15,6 +15,9 @@ class AppServiceProvider extends ServiceProvider
 
     public function boot(): void
     {
+        if ($this->app->environment('production') || env('APP_ENV') === 'production') {
+            \Illuminate\Support\Facades\URL::forceScheme('https');
+        }
         // Share header top bar CMS data with the header partial on every page
         View::composer('Layout.header', function ($view) {
             $topBarCms = HomeContent::getSection('top_bar');
