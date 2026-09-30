@@ -44,21 +44,11 @@
           <div class="about_text_card">
             <h2 class="feature_title_lg display_title">{{ ($story && $story->title) ? $story->title : 'Our Story'}}</h2>
             <p class="feature_text">
-              {{ ($story && $story->description) ? $story->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat
-                                non proident, sunt in culpa qui officia deserunt mollit anim id
-                                est laborum. Sed ut perspiciatis unde omnis iste natus error sit
-                                voluptatem accusantium doloremque laudantium, totam rem aperiam,
-                                eaque ipsa quae ab illo inventore veritatis quasi architecto
-                                beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem
-                                quia voluptas sit aspernatur aut odit aut fugit, sed quia
-                                consequuntur magni dolores eos qui ratione voluptatem sequi
-                                nesciunt.' }}
+              {{ ($story && $story->description && !str_contains($story->description, 'Lorem ipsum')) ? $story->description : 'At Crest & Clove, we believe cooking is an art form best supported by thoughtful, enduring design. Founded by passionate culinary enthusiasts, our journey began with a mission to bring professional-grade cookware and artisan aesthetics into home kitchens.' }}
             </p>
             <div class="about_extra_text d-lg-none d-flex">
               <p class="feature_text">
-                {{ ($story && $story->subtitle) ? $story->subtitle : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam.' }}
+                {{ ($story && $story->subtitle && !str_contains($story->subtitle, 'Lorem ipsum')) ? $story->subtitle : 'Every piece in our catalog is rigorously tested for heat distribution, ergonomic balance, and longevity. We collaborate with master artisans to source premium materials—from clad stainless steel to cast iron—ensuring you cook with confidence for generations to come.' }}
               </p>
             </div>
           </div>
@@ -69,7 +59,7 @@
         <div class="col-12">
           <div class="about_extra_text d-none d-lg-flex">
             <p class="feature_text">
-              {{ ($story && $story->subtitle) ? $story->subtitle : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam.' }}
+              {{ ($story && $story->subtitle && !str_contains($story->subtitle, 'Lorem ipsum')) ? $story->subtitle : 'Every piece in our catalog is rigorously tested for heat distribution, ergonomic balance, and longevity. We collaborate with master artisans to source premium materials—from clad stainless steel to cast iron—ensuring you cook with confidence for generations to come.' }}
             </p>
           </div>
         </div>
@@ -84,11 +74,7 @@
           <div class="about_text_block">
             <h2 class="feature_title_lg">{{ ($mission && $mission->title) ? $mission->title : 'Our Mission'}}</h2>
             <p class="feature_text">
-              {{ ($mission && $mission->description) ? $mission->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                  cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat
-                                  non proident, sunt in culpa qui officia deserunt mollit anim id
-                                  est laborum.' }}
+              {{ ($mission && $mission->description && !str_contains($mission->description, 'Lorem ipsum')) ? $mission->description : 'To empower cooks of all skill levels with beautifully crafted, dependable kitchenware that elevates everyday dining into memorable culinary experiences.' }}
             </p>
           </div>
         </div>
@@ -108,11 +94,7 @@
           <div class="about_text_block">
             <h2 class="feature_title_lg">{{ ($vision && $vision->title) ? $vision->title : 'Our Vision'}}</h2>
             <p class="feature_text">
-              {{ ($vision && $vision->description) ? $vision->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua
-                                  Duis aute irure dolor in reprehenderit in voluptate velit esse
-                                  cillum dolore eu fugiat nulla pariatur. Sint occaecat cupidatat
-                                  non proident, sunt in culpa qui officia deserunt mollit anim id
-                                  est laborum.' }}
+              {{ ($vision && $vision->description && !str_contains($vision->description, 'Lorem ipsum')) ? $vision->description : 'To become a trusted global destination for timeless culinary craftsmanship, sustainable kitchen essentials, and inspired living.' }}
             </p>
           </div>
         </div>
@@ -134,7 +116,7 @@
       <div class="text-center mb-5">
         <h2 class="section_title mb-2">{{ ($test && $test->title) ? $test->title : 'Our Happy Customers' }}</h2>
         <p class="section_subtitle mb-0">
-          {{ ($test && $test->subtitle) ? $test->subtitle : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }}
+          {{ ($test && $test->subtitle && !str_contains($test->subtitle, 'Lorem ipsum')) ? $test->subtitle : "Real feedback from customers who've made Crest & Clove part of their kitchen." }}
         </p>
       </div>
 

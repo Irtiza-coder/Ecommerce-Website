@@ -13,10 +13,14 @@
         $liUrl = $socialLinks[3] ?? '#';
 
         // Contact: email|phone in description
-        $contactParts = explode('|', ($fc ? $fc->description : 'loremipsum@gmail.com|(123)-456-7890'));
-        $footerEmail  = $contactParts[0] ?? 'loremipsum@gmail.com';
-        $footerPhone  = $contactParts[1] ?? '(123)-456-7890';
-        $footerAddr   = ($fc && $fc->subtitle) ? $fc->subtitle : 'Lorem ipsum dolor sit amet consectetur adipisicing elit.';
+        $rawDesc = ($fc && $fc->description) ? $fc->description : 'support@crestandclove.com|+92 300 1234567';
+        if (str_contains($rawDesc, 'loremipsum@gmail.com')) {
+            $rawDesc = 'support@crestandclove.com|+92 300 1234567';
+        }
+        $contactParts = explode('|', $rawDesc);
+        $footerEmail  = $contactParts[0] ?? 'support@crestandclove.com';
+        $footerPhone  = $contactParts[1] ?? '+92 300 1234567';
+        $footerAddr   = ($fc && $fc->subtitle && !str_contains($fc->subtitle, 'Lorem ipsum')) ? $fc->subtitle : "Have a question? We're happy to help.";
     @endphp
 
     <div class="container">

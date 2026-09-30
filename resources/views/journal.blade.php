@@ -43,11 +43,11 @@
         <div class="col-6">
           <div class="journal_alt_card">
             <h3 class="journal_alt_title">{!! ($post1 && $post1->title) ? nl2br(e($post1->title)) : 'Cooking<br>&amp; Techniques' !!}</h3>
-            <p class="journal_alt_text">{{ ($post1 && $post1->description) ? $post1->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }}</p>
+            <p class="journal_alt_text">{{ ($post1 && $post1->description && !str_contains($post1->description, 'Lorem ipsum')) ? $post1->description : 'Mastering the art of heat control, seasoning cast iron, and knife sharpening techniques to bring professional finesse into your everyday kitchen.' }}</p>
             <ul class="journal_alt_list">
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
+              <li><i class="fa-solid fa-circle"></i>Pro Knife Sharpening Tips</li>
+              <li><i class="fa-solid fa-circle"></i>Mastering Searing Temperatures</li>
+              <li><i class="fa-solid fa-circle"></i>Cast Iron Seasoning Guide</li>
             </ul>
           </div>
         </div>
@@ -63,11 +63,11 @@
         <div class="col-6 order-lg-1">
           <div class="journal_alt_card">
             <h3 class="journal_alt_title">{!! ($post2 && $post2->title) ? nl2br(e($post2->title)) : 'Recipes<br>&amp; Bakery' !!}</h3>
-            <p class="journal_alt_text">{{ ($post2 && $post2->description) ? $post2->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }}</p>
+            <p class="journal_alt_text">{{ ($post2 && $post2->description && !str_contains($post2->description, 'Lorem ipsum')) ? $post2->description : 'From artisan sourdough loaves to delicate pastries, discover essential baking ratios, crust perfecting tips, and seasonal culinary recipes.' }}</p>
             <ul class="journal_alt_list">
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
+              <li><i class="fa-solid fa-circle"></i>Artisan Sourdough Fundamentals</li>
+              <li><i class="fa-solid fa-circle"></i>Pastry Crust Perfection</li>
+              <li><i class="fa-solid fa-circle"></i>Baking Temperature Science</li>
             </ul>
           </div>
         </div>
@@ -83,11 +83,11 @@
         <div class="col-6">
           <div class="journal_alt_card">
             <h3 class="journal_alt_title">{!! ($post3 && $post3->title) ? nl2br(e($post3->title)) : 'Product<br>Care &amp; Use' !!}</h3>
-            <p class="journal_alt_text">{{ ($post3 && $post3->description) ? $post3->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.' }}</p>
+            <p class="journal_alt_text">{{ ($post3 && $post3->description && !str_contains($post3->description, 'Lorem ipsum')) ? $post3->description : 'Simple guidelines to preserve the beauty and lifetime performance of your stainless steel, enameled pots, and handcrafted carbon steel woks.' }}</p>
             <ul class="journal_alt_list">
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
-              <li><i class="fa-solid fa-circle"></i>Dolor Sit Amet, Consectetur</li>
+              <li><i class="fa-solid fa-circle"></i>Caring for Clad Stainless Steel</li>
+              <li><i class="fa-solid fa-circle"></i>Preserving Wood Knife Handles</li>
+              <li><i class="fa-solid fa-circle"></i>Long-term Non-Stick Care</li>
             </ul>
           </div>
         </div>

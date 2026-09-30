@@ -11,7 +11,7 @@
                             <option>dummy</option>
                         </select>
                         @php
-                            $phone = ($topBarCms && $topBarCms->subtitle) ? $topBarCms->subtitle : '123 456 7890';
+                            $phone = ($topBarCms && $topBarCms->subtitle && $topBarCms->subtitle !== '123 456 7890') ? $topBarCms->subtitle : '+92 300 1234567';
                         @endphp
                         <a href="tel:{{ preg_replace('/[^0-9+]/', '', $phone) }}"><i
                                 class="fa-solid fa-phone"></i>{{ $phone }}</a>

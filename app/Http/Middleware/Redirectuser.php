@@ -10,14 +10,18 @@ class Redirectuser
 {
     /**
      * Handle an incoming request.
-     *
+     * 
      * @param  Closure(Request): (Response)  $next
+     * 
      */
-    public function handle(Request $request, Closure $next): Response
+    public function handle(Request $request, Closure $next)
     {
-        if (session('user_id')){
-                return redirect('/dashboard');
+        if (session('user_id')) {
+            return redirect('/dashboard');
         }
         return $next($request);
     }
 }
+
+
+

@@ -20,7 +20,7 @@
         <div class="col-sm-5 col-12">
           <div class="welcome_right">
             <p>
-              {{ ($welcome && $welcome->description) ? $welcome->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed aliqua. Ut enim ad minim veniam.' }}
+              {{ ($welcome && $welcome->description && !str_contains($welcome->description, 'Lorem ipsum')) ? $welcome->description : 'Premium kitchenware crafted for everyday cooking — built to last, designed to impress.' }}
             </p>
             <div class="icons">
               <a href="" class="social_icon"><i class="fa-brands fa-facebook-f"></i></a>
@@ -96,7 +96,7 @@
             </div>
             <h3 class="feature_title">{{ ($f1 && $f1->title) ? $f1->title : 'Where Design Meets Precision' }}</h3>
             <p class="feature_text">
-              {{ ($f1 && $f1->description) ? $f1->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.' }}
+              {{ ($f1 && $f1->description && !str_contains($f1->description, 'Lorem ipsum')) ? $f1->description : 'Every piece is shaped with precision, blending function with timeless design.' }}
             </p>
             <a href="" class="shop_now_btn">Shop Now</a>
           </div>
@@ -108,7 +108,7 @@
             </div>
             <h3 class="feature_title">{{ ($f2 && $f2->title) ? $f2->title : "The Essential Chef's Companion" }}</h3>
             <p class="feature_text">
-              {{ ($f2 && $f2->description) ? $f2->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.' }}
+              {{ ($f2 && $f2->description && !str_contains($f2->description, 'Lorem ipsum')) ? $f2->description : 'From prep to plate, our tools are made to handle it all — without slowing you down.' }}
             </p>
             <a href="" class="shop_now_btn">Shop Now</a>
           </div>
@@ -134,7 +134,7 @@
       <div class="text-center mb-5">
         <h2 class="section_title mb-2">{{ ($shop && $shop->title) ? $shop->title : 'Our Shop' }}</h2>
         <p class="section_subtitle mb-0">
-          {{ ($shop && $shop->subtitle) ? $shop->subtitle : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }}
+          {{ ($shop && $shop->subtitle && !str_contains($shop->subtitle, 'Lorem ipsum')) ? $shop->subtitle : 'Explore our best-selling kitchenware, chosen for quality and everyday durability.' }}
         </p>
       </div>
       <div class="multi-carousel" id="prodCarousel">
@@ -193,7 +193,7 @@
         <div class="catalogue_left">
           <h2 class="catalogue_title">{{ ($cat && $cat->title) ? $cat->title : 'Browse Our 2026 Catalogue' }}</h2>
           <p class="catalogue_text">
-            {{ ($cat && $cat->description) ? $cat->description : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }}
+            {{ ($cat && $cat->description && !str_contains($cat->description, 'Lorem ipsum')) ? $cat->description : 'Curated cookware and culinary essentials engineered for passionate home chefs and culinary experts.' }}
           </p>
           <a href="" class="shop_now_btn shop_now_btn_light">Shop Now</a>
         </div>
@@ -213,7 +213,7 @@
       <div class="text-center mb-5">
         <h2 class="section_title mb-2">{{ ($test && $test->title) ? $test->title : 'Our Happy Customers' }}</h2>
         <p class="section_subtitle mb-0">
-          {{ ($test && $test->subtitle) ? $test->subtitle : 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.' }}
+          {{ ($test && $test->subtitle && !str_contains($test->subtitle, 'Lorem ipsum')) ? $test->subtitle : "Real feedback from customers who've made Crest & Clove part of their kitchen." }}
         </p>
       </div>
 
@@ -247,7 +247,7 @@
               <div class="testimonial_card">
                 <h4>Ann Peterson</h4>
                 <span class="testimonial_role">Senior Director</span>
-                <p class="testimonial_text">Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                <p class="testimonial_text">Exceptional quality and timeless aesthetic. The cookware performs reliably day in and day out.</p>
                 <div class="testimonial_bottom">
                   <div class="testimonial_stars">
                     <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i

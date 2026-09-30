@@ -39,7 +39,7 @@
       <div class="text-center mb-5">
         <h2 class="section_title">{{ ($header && $header->title) ? $header->title : 'Contact Details' }}</h2>
         <p class="section_subtitle">
-          {{ ($header && $header->subtitle) ? $header->subtitle : 'Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempori lorum ncididunt ut labore et laboris nisi ut aliquip ex ea commodo consequat. tur.' }}
+          {{ ($header && $header->subtitle && !str_contains($header->subtitle, 'Dolor sit')) ? $header->subtitle : 'Have questions about our artisan products or orders? Our culinary concierge team is here to assist you.' }}
         </p>
       </div>
 
@@ -48,21 +48,21 @@
           <div class="contact_info_card">
             <i class="fa-solid fa-location-dot"></i>
             <h4>{{ ($location && $location->title) ? $location->title : 'Location Address' }}</h4>
-            <p>{!! ($location && $location->description) ? nl2br(e($location->description)) : 'Ipsum dolor sit amet, consectetur adipisicing elit, sed do' !!}</p>
+            <p>{!! ($location && $location->description && !str_contains($location->description, 'Ipsum dolor')) ? nl2br(e($location->description)) : '100 Artisan Way, Suite 400<br>Culinary District, NY 10001' !!}</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="contact_info_card">
             <i class="fa-solid fa-phone"></i>
             <h4>{{ ($phone && $phone->title) ? $phone->title : 'Phone Contact' }}</h4>
-            <p>{!! ($phone && $phone->description) ? nl2br(e($phone->description)) : 'Tel: (00) 123 456 7890<br>Fax: (00) 123 456 7891' !!}</p>
+            <p>{!! ($phone && $phone->description && !str_contains($phone->description, '123 456 7890')) ? nl2br(e($phone->description)) : 'Tel: +92 300 1234567<br>Toll-Free: +1 (800) 555-0199' !!}</p>
           </div>
         </div>
         <div class="col-lg-4">
           <div class="contact_info_card">
             <i class="fa-solid fa-at"></i>
             <h4>{{ ($email && $email->title) ? $email->title : 'Email Contact' }}</h4>
-            <p>{!! ($email && $email->description) ? nl2br(e($email->description)) : 'Example.@gmail.com<br>Example.@gmail.com' !!}</p>
+            <p>{!! ($email && $email->description && !str_contains($email->description, 'Example.')) ? nl2br(e($email->description)) : 'support@crestandclove.com<br>concierge@crestandclove.com' !!}</p>
           </div>
         </div>
       </div>
@@ -70,7 +70,7 @@
       <div class="text-center mb-5">
         <h2 class="section_title">{{ ($faq && $faq->title) ? $faq->title : 'Have A Question For Us' }}</h2>
         <p class="section_subtitle">
-          {{ ($faq && $faq->subtitle) ? $faq->subtitle : 'Dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempori lorum ncididunt ut labore et laboris nisi ut aliquip ex ea commodo consequat. tur.' }}
+          {{ ($faq && $faq->subtitle && !str_contains($faq->subtitle, 'Dolor sit')) ? $faq->subtitle : 'Fill out the form below and our team will get back to you within 24 business hours.' }}
         </p>
       </div>
 

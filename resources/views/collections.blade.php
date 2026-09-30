@@ -34,9 +34,7 @@
 						</div>
 						<h3 class="feature_title">Where Design Meets Precision</h3>
 						<p class="feature_text">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation.
+							Every piece is shaped with precision, blending function with timeless design.
 						</p>
 						<a href="" class="shop_now_btn">Shop Now</a>
 					</div>
@@ -48,9 +46,7 @@
 						</div>
 						<h3 class="feature_title">The Essential Chef's Companion</h3>
 						<p class="feature_text">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation.
+							From prep to plate, our tools are made to handle it all — without slowing you down.
 						</p>
 						<a href="" class="shop_now_btn">Shop Now</a>
 					</div>
@@ -128,9 +124,7 @@
 						</div>
 						<h3 class="feature_title">Where Design Meets Precision</h3>
 						<p class="feature_text">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation.
+							Every piece is shaped with precision, blending function with timeless design.
 						</p>
 						<a href="" class="shop_now_btn">Shop Now</a>
 					</div>
@@ -142,9 +136,7 @@
 						</div>
 						<h3 class="feature_title">The Essential Chef's Companion</h3>
 						<p class="feature_text">
-							Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do
-							eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-							enim ad minim veniam, quis nostrud exercitation.
+							From prep to plate, our tools are made to handle it all — without slowing you down.
 						</p>
 						<a href="" class="shop_now_btn">Shop Now</a>
 					</div>
