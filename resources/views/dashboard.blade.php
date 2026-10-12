@@ -24,21 +24,25 @@
   <!-- Stat cards -->
   <div class="stat_cards">
     <div class="stat_card">
+      <div class="stat_card_icon"><i class="fa-solid fa-box-open"></i></div>
       <h5>Total Orders</h5>
       <div class="stat_value">{{ $totalOrders }}</div>
     </div>
     <div class="stat_card">
+      <div class="stat_card_icon"><i class="fa-solid fa-coins"></i></div>
       <h5>Total Spent</h5>
       <div class="stat_value">${{ number_format($totalSpent, 2) }}</div>
     </div>
     <div class="stat_card">
+      <div class="stat_card_icon"><i class="fa-solid fa-cart-shopping"></i></div>
       <h5>Items in Cart</h5>
       <div class="stat_value">{{ count(session('cart', [])) }}</div>
     </div>
     <div class="stat_card">
+      <div class="stat_card_icon"><i class="fa-solid fa-circle-check"></i></div>
       <h5>Account Status</h5>
-      <div class="stat_value" style="font-size:18px; color:#16a34a; display:flex; align-items:center; gap:6px;">
-        <i class="fa-solid fa-circle-check" style="font-size:14px;"></i> Active
+      <div class="stat_value" style="font-size:18px;color:#15803d;display:flex;align-items:center;gap:7px;margin-top:4px;">
+        <span class="dash_status_beacon"></span> Active
       </div>
     </div>
   </div>
@@ -46,8 +50,8 @@
   <!-- Recent Orders -->
   <div class="dash_card mb-4" id="ordersSection">
     <div class="dash_card_header">
-      <span><i class="fa-solid fa-box-open me-2" style="color:#b8935a;"></i> Recent Orders</span>
-      <span class="badge bg-light text-dark">{{ $totalOrders }} Orders</span>
+      <span><i class="fa-solid fa-box-open me-2" style="color:var(--u-gold, #b8935a);"></i> Recent Orders</span>
+      <span class="badge" style="background:var(--u-gold-subtle, rgba(184,147,90,0.12));color:var(--u-gold-hover, #9e7436);border:1px solid rgba(184,147,90,0.25);font-size:12px;padding:5px 12px;border-radius:99px;">{{ $totalOrders }} Orders</span>
     </div>
     <div class="dash_card_body">
       <div class="table-responsive">
@@ -67,15 +71,15 @@
             @forelse($orders as $order)
               <tr>
                 <td>
-                  <strong style="color:#b8935a;">#{{ $order->id }}</strong>
+                  <strong style="color:var(--u-gold, #b8935a);letter-spacing:0.02em;">#{{ $order->id }}</strong>
                 </td>
                 <td>{{ $order->created_at->format('M d, Y') }}</td>
                 <td>
-                  <span style="font-size:13px; color:#64748b;">
+                  <span style="font-size:13px; color:var(--u-text-muted, #7d7467);">
                     {{ $order->items->count() }} {{ Str::plural('item', $order->items->count()) }}
                   </span>
                 </td>
-                <td>{{ $order->payment_method }}</td>
+                <td><span style="font-weight:600;font-size:13px;">{{ $order->payment_method }}</span></td>
                 <td>
                   @php
                     $statusClass = match(strtolower($order->status)) {
@@ -90,12 +94,12 @@
                   </span>
                 </td>
                 <td>
-                  <strong style="color:#b8935a; font-size:15px;">
+                  <strong style="color:var(--u-gold, #b8935a); font-size:15px;">
                     ${{ number_format($order->total_amount, 2) }}
                   </strong>
                 </td>
                 <td style="text-align:right;">
-                  <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#userOrderModal{{ $order->id }}" style="font-size:12px; border-radius:6px; padding:4px 10px;">
+                  <button type="button" class="btn btn-sm btn-outline-secondary" data-bs-toggle="modal" data-bs-target="#userOrderModal{{ $order->id }}" style="font-size:12px; border-radius:99px; padding:5px 14px; font-weight:600;">
                     <i class="fa-solid fa-receipt me-1"></i> View Receipt
                   </button>
                 </td>
@@ -103,9 +107,13 @@
             @empty
               <tr>
                 <td colspan="7" class="text-center py-5">
-                  <p class="text-muted mb-2">You haven't placed any orders yet.</p>
-                  <a href="{{ route('shop') }}" class="btn btn-sm btn-outline-warning" style="color:#b8935a; border-color:#b8935a;">
-                    Browse Products <i class="fa-solid fa-arrow-right ms-1"></i>
+                  <div style="width:54px;height:54px;border-radius:50%;background:rgba(184,147,90,0.1);color:#b8935a;display:inline-flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:12px;">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                  </div>
+                  <h6 style="font-weight:700;color:var(--u-text-main, #1c1917);margin-bottom:4px;">No Orders Placed Yet</h6>
+                  <p class="text-muted mb-3" style="font-size:13px;">When you purchase culinary essentials from Crest &amp; Clove, they will appear here.</p>
+                  <a href="{{ route('shop') }}" class="dash_btn_primary">
+                    Browse Kitchenware <i class="fa-solid fa-arrow-right ms-1"></i>
                   </a>
                 </td>
               </tr>
@@ -119,8 +127,8 @@
   <!-- Account Details Overview -->
   <div class="dash_card" id="accountDetailsSection">
     <div class="dash_card_header">
-      <span><i class="fa-solid fa-user-shield me-2" style="color:#b8935a;"></i> Profile Overview</span>
-      <a href="{{ route('user.profile') }}" class="btn btn-sm" style="background:#b8935a; color:#fff; font-weight:600; border-radius:6px; font-size:13px;">
+      <span><i class="fa-solid fa-user-shield me-2" style="color:var(--u-gold, #b8935a);"></i> Profile Overview</span>
+      <a href="{{ route('user.profile') }}" class="dash_btn_primary" style="padding:6px 16px;font-size:12.5px;">
         <i class="fa-solid fa-user-pen me-1"></i> Edit Profile & Password
       </a>
     </div>
@@ -129,7 +137,7 @@
         <tbody>
           <tr>
             <th style="width:220px;">Full Name</th>
-            <td>{{ $user->First_name }} {{ $user->Last_name }}</td>
+            <td style="font-weight:600;color:var(--u-text-main, #1c1917);">{{ $user->First_name }} {{ $user->Last_name }}</td>
           </tr>
           <tr>
             <th>Email Address</th>
@@ -148,15 +156,15 @@
   @foreach($orders as $order)
   <div class="modal fade" id="userOrderModal{{ $order->id }}" tabindex="-1" aria-labelledby="userOrderModalLabel{{ $order->id }}" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
-      <div class="modal-content" style="border-radius:12px; border:none; box-shadow:0 10px 30px rgba(0,0,0,0.15);">
-        <div class="modal-header" style="background:#191c24; color:#fff; border-bottom:none; padding:18px 24px;">
+      <div class="modal-content" style="border-radius:16px; border:1px solid #eae3d5; box-shadow:0 16px 40px rgba(44,38,30,0.12); overflow:hidden;">
+        <div class="modal-header" style="background:linear-gradient(135deg, #faf7f0 0%, #f4ede0 100%); color:#1c1917; border-bottom:1px solid #eae3d5; padding:18px 24px;">
           <div>
-            <h5 class="modal-title mb-0" id="userOrderModalLabel{{ $order->id }}" style="font-weight:700;">
+            <h5 class="modal-title mb-0" id="userOrderModalLabel{{ $order->id }}" style="font-weight:700;font-size:17px;">
               Order Receipt <span style="color:#b8935a;">#{{ $order->id }}</span>
             </h5>
-            <small style="color:#94a3b8;">Placed on {{ $order->created_at->format('M d, Y \a\t h:i A') }}</small>
+            <small style="color:#7d7467;font-size:12.5px;">Placed on {{ $order->created_at->format('M d, Y \a\t h:i A') }}</small>
           </div>
-          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
         <div class="modal-body" style="padding:24px;">
           <!-- Status Banner -->

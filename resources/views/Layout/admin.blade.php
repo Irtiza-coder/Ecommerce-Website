@@ -115,9 +115,12 @@
                     </h2>
                 </div>
                 <div class="admin_user">
+                    <span class="d-none d-md-inline-flex align-items-center gap-2 me-1" style="font-size:12px;font-weight:600;color:#15803d;background:#ecfdf5;border:1px solid #a7f3d0;padding:5px 12px;border-radius:99px;">
+                        <span class="live_beacon"></span> Store Live
+                    </span>
                     <a href="{{ route('admin.profile') }}" class="admin_profile_chip" title="Account Settings & Change Password">
                         <div class="admin_avatar">{{ strtoupper(substr(session('admin_username', 'A'), 0, 1)) }}</div>
-                        <span style="font-weight:600;font-size:14px;">{{ session('admin_username') }}</span>
+                        <span style="font-weight:600;font-size:13.5px;">{{ session('admin_username') }}</span>
                         <i class="fa-solid fa-gear"></i>
                     </a>
                     <a href="{{ route('admin.logout') }}" class="btn-logout-admin">
