@@ -199,13 +199,3 @@ Route::get('/wishlist', [\App\Http\Controllers\WishlistController::class, 'index
 Route::post('/wishlist/toggle/{id}', [\App\Http\Controllers\WishlistController::class, 'toggle'])->name('wishlist.toggle');
 Route::post('/wishlist/remove/{id}', [\App\Http\Controllers\WishlistController::class, 'remove'])->name('wishlist.remove');
 
-// ⚠️ TEMPORARY - REMOVE AFTER USE
-Route::get('/admin-reset-pass-8k3z9q', function () {
-    $admin = \App\Models\Admin::first();
-    if (!$admin) {
-        return 'Admin not found. Check your Admin model name.';
-    }
-    $admin->password = \Illuminate\Support\Facades\Hash::make('admin123');
-    $admin->save();
-    return '✅ Admin password changed to: admin123 — NOW REMOVE THIS ROUTE!';
-});
