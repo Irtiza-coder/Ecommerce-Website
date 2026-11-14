@@ -4,7 +4,12 @@ services:
     env: docker
     plan: free
     dockerfilePath: ./Dockerfile
+    healthCheckPath: /up
     envVars:
+      - key: PORT
+        value: "8080"
+      - key: LOG_CHANNEL
+        value: stderr
       - key: APP_NAME
         value: "Crest & Clove"
       - key: APP_ENV

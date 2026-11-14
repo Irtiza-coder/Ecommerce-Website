@@ -1,5 +1,8 @@
 FROM serversideup/php:8.4-fpm-nginx
 
+ENV NGINX_HTTP_PORT=8080 \
+    HEALTHCHECK_PATH=/healthcheck
+
 USER root
 
 # Copy application files with proper www-data ownership
