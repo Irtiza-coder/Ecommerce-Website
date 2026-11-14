@@ -17,13 +17,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // 1. Seed Admin Account
-        Admin::updateOrCreate(
-            ['username' => 'admin'],
-            [
-                'password' => Hash::make('123456'),
-            ]
-        );
+        $adminPassword = getenv('CREST_ADMIN_PASSWORD');
+        if ($adminPassword !== false && $adminPassword !== '') {
+            Admin::firstOrCreate(
+                ['username' => 'admin'],
+                ['password' => Hash::make($adminPassword)]
+            );
+        }
 
         // 2. Seed Categories
         $categories = [
@@ -37,8 +37,13 @@ class DatabaseSeeder extends Seeder
             ['id' => 8, 'name' => 'Bedroom', 'slug' => 'bedroom'],
         ];
 
-        foreach ($categories as $cat) {
-            Category::updateOrCreate(['id' => $cat['id']], $cat);
+        $categoryIds = [];
+        foreach ($categories as $category) {
+            $savedCategory = Category::firstOrCreate(
+                ['slug' => $category['slug']],
+                ['name' => $category['name']]
+            );
+            $categoryIds[$category['id']] = $savedCategory->id;
         }
 
         // 3. Seed Products from JSON
@@ -46,7 +51,8 @@ class DatabaseSeeder extends Seeder
         if (file_exists($productsJsonPath)) {
             $products = json_decode(file_get_contents($productsJsonPath), true);
             foreach ($products as $item) {
-                Product::updateOrCreate(
+                $item['category_id'] = $categoryIds[$item['category_id']];
+                Product::firstOrCreate(
                     ['slug' => $item['slug']],
                     $item
                 );
@@ -149,7 +155,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($homeContents as $hc) {
-            HomeContent::updateOrCreate(['section' => $hc['section']], $hc);
+            HomeContent::firstOrCreate(['section' => $hc['section']], $hc);
         }
 
         // 5. Seed Testimonials
@@ -205,7 +211,7 @@ class DatabaseSeeder extends Seeder
         ];
 
         foreach ($testimonials as $t) {
-            Testmonials::updateOrCreate(['name' => $t['name']], $t);
+            Testmonials::firstOrCreate(['name' => $t['name']], $t);
         }
     }
 }
